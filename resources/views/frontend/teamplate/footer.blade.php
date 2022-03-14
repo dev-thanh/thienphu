@@ -49,6 +49,7 @@
     </div>
     </div>
 </footer>
+@if(!empty(@$site_info->floatbarleft))
 <div id="addon__society">
     <div class="addon__item left" style="bottom: {{@$site_info->floatbarleft_bottom}}px;left: {{@$site_info->floatbarleft_left}}px">
         @foreach(@$site_info->floatbarleft as $item)
@@ -58,6 +59,8 @@
         @endforeach
     </div>
 </div>
+@endif
+@if(!empty(@$site_info->floatbarright))
 <div id="addon__society">
     <div class="addon__item right" style="bottom: {{@$site_info->floatbarright_bottom}}px;right: {{@$site_info->floatbarright_right}}px">
         @foreach(@$site_info->floatbarright as $item)
@@ -67,6 +70,7 @@
         @endforeach
     </div>
 </div>
+@endif
 
 
 
