@@ -132,7 +132,7 @@
 
 				<li class="nav-item {{ ( Request::segment(2) === 'image' ) ? 'active' : null }}">
 					<a href="{{ route('image.index', ['type'=> 'slider']) }}">
-						<i class="fas fa-file-video"></i>
+						<i class="far fa-image"></i>
 						<p>Quản lý banner</p>
 					</a>
 				</li>
@@ -149,13 +149,13 @@
 						<p>Liên hệ</p>
 					</a>
 				</li>
-				<li class="nav-item {{ ( Request::segment(2) === 'options' && Request::segment(3) === 'general') || Request::segment(2) === 'menu' || request()->get('type') == 'slider' || ($routeName =='policy.list' || $routeName =='policy.add' || $routeName =='policy.edit' || Request::segment(2) === 'partner') ? 'active' : null }}">
+				<li class="nav-item {{ ( Request::segment(2) === 'options' && Request::segment(3) === 'general') || Request::segment(2) === 'menu'? 'active' : null }}">
 					<a data-toggle="collapse" href="#submenu">
 						<i class="fas fa-bars"></i>
 						<p>Cấu hình</p>
 						<span class="caret"></span>
 					</a>
-					<div class="collapse {{ Request::segment(2) === 'menu' || Request::segment(2) === 'image' || ( Request::segment(3) === 'general' && Request::segment(3) === 'general') || ($routeName =='policy.list' || $routeName =='policy.add' || $routeName =='policy.edit' || Request::segment(2) === 'partner') ? 'show' : null }}" id="submenu">
+					<div class="collapse {{ Request::segment(2) === 'menu' || ( Request::segment(3) === 'general' && Request::segment(3) === 'general') ? 'show' : null }}" id="submenu">
 						<ul class="nav nav-collapse">
 							<li class='{{ Request::segment(3) === 'general' ? 'active' : null }}'>
 								<a href="{{ route('backend.options.general') }}">
@@ -163,21 +163,12 @@
 								</a>
 							</li>
 							
-							<li class="{{ request()->get('type') == 'slider' ? 'active' : null }}">
-								<a href="{{ route('image.index', ['type'=> 'slider']) }}">
-									<span class="sub-item">Slider</span>
-								</a>
-							</li>
 							<li class="{{ Request::segment(2) === 'menu' ? 'active' : null }}">
 								<a href="{{ route('setting.menu') }}">
 									<span class="sub-item">Menu</span>
 								</a>
 							</li>
-							<li class="{{ $routeName =='policy.list' || $routeName =='policy.add' || $routeName =='policy.edit' ? 'active' : null }}">
-								<a href="{{ route('policy.list') }}">
-									<span class="sub-item">Điều khoản, chính sách</span>
-								</a>
-							</li>
+							
 						</ul>
 					</div>
 				</li>

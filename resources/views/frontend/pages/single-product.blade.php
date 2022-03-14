@@ -62,7 +62,7 @@
                             {!! $data->desc !!}
                         </div>
                         <div class="button-navbar-product">
-                            <a class="btn btn-primary contact-buynow" href="#">Liên hệ mua hàng</a>
+                            <a class="btn btn-primary contact-buynow" href="{{route('home.contact')}}">Liên hệ mua hàng</a>
                             @if(!empty($data->file))
                             <?php $file = json_decode($data->file); ?>
                             @endif
