@@ -28,6 +28,12 @@
 											<li class="nav-item">
 							                	<a class="nav-link" href="#activity8" data-toggle="tab" aria-expanded="true">Hệ thống(trang chủ)</a>
 											</li>
+											<li class="nav-item">
+							                	<a class="nav-link" href="#activity10" data-toggle="tab" aria-expanded="true">Text hiển thị(header)</a>
+											</li>
+											<li class="nav-item">
+							                	<a class="nav-link" href="#activity9" data-toggle="tab" aria-expanded="true">Float bar button</a>
+											</li>
 											
 											<li class="nav-item">
 												<a class="nav-link" href="#activity4" data-toggle="tab" aria-expanded="true">Mạng xã hội</a>
@@ -253,6 +259,132 @@
 															</div>
 														</div>
 													</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane" id="activity10">
+							               		<div class="row">
+							               			<div class="col-sm-12">
+													   <div class="repeater" id="repeater">
+											                <table class="table table-bordered table-hover discount page-table-home">
+											                    <thead>
+												                    <tr>
+																		<th style="width: 30px">STT</th>
+												                    	<th>Nội dung</th>
+												                    	<th></th>
+												                    </tr>
+											                	</thead>
+											                    <tbody id="sortable">
+											                    	@if (!empty($content->discount))
+											                    		@foreach ($content->discount as $id => $val)
+																			@include('backend.repeater.row-discount')
+											                    		@endforeach
+											                    	@endif
+																</tbody>
+											                </table>
+											                <div class="text-right">
+											                    <button class="btn btn-primary btn-sm" 
+													            	onclick="repeater(event,this,'{{ route('get.layout') }}','.index', 'discount', '.discount')">Thêm
+													            </button>
+											                </div>
+											            </div>
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane" id="activity9">
+							               		<div class="row">
+							               			<div class="col-sm-12">
+														<h3 style="background:#e1f7ec;padding:10px">Float bar button (Bên phải)</h3>
+														<div class="row">
+															<div class="col-sm-6">
+																<div class="form-group">
+																	<label for="">Cách lề bên dưới(px)</label>
+																	<input type="number" name="content[floatbarright_bottom]" class="form-control" value="{{ @$content->floatbarright_bottom }}">
+																</div>
+															</div>
+															<div class="col-sm-6">
+	
+																<div class="form-group">
+																	<label for="">Cách lề bên phải(px)</label>
+																	<input type="number" name="content[floatbarright_right]" class="form-control" value="{{ @$content->floatbarright_right }}">
+																</div>
+															</div>
+														</div>
+													   	<div class="repeater" id="repeater">
+											                <table class="table table-bordered table-hover floatbarright page-table-home">
+											                    <thead>
+												                    <tr>
+																		<th style="width: 30px">STT</th>
+												                    	<th>Hình ảnh</th>
+												                    	<th class="text-center">Tiêu đề</th>
+												                    	<th class="text-center">Background</th>
+												                    	<th class="text-center">Thêm hiệu ứng lắc</th>
+												                    	<th>Link</th>
+												                    	<th></th>
+												                    </tr>
+											                	</thead>
+											                    <tbody id="sortable">
+											                    	@if (!empty($content->floatbarright))
+											                    		@foreach ($content->floatbarright as $id => $val)
+																			@include('backend.repeater.row-floatbarright')
+											                    		@endforeach
+											                    	@endif
+																</tbody>
+											                </table>
+											                <div class="text-right">
+											                    <button class="btn btn-primary btn-sm" 
+													            	onclick="repeater(event,this,'{{ route('get.layout') }}','.index', 'floatbarright', '.floatbarright')">Thêm
+													            </button>
+											                </div>
+											            </div>
+													</div>
+
+													<div class="col-sm-12">
+														<h3 style="background:#e1f7ec;padding:10px">Float bar button (Bên trái)</h3>
+														<div class="row">
+															<div class="col-sm-6">
+																<div class="form-group">
+																	<label for="">Cách lề bên dưới(px)</label>
+																	<input type="number" name="content[floatbarleft_bottom]" class="form-control" value="{{ @$content->floatbarleft_bottom }}">
+																</div>
+															</div>
+															<div class="col-sm-6">
+	
+																<div class="form-group">
+																	<label for="">Cách lề bên trái(px)</label>
+																	<input type="number" name="content[floatbarleft_left]" class="form-control" value="{{ @$content->floatbarleft_left }}">
+																</div>
+															</div>
+														</div>
+													   	<div class="repeater" id="repeater">
+											                <table class="table table-bordered table-hover floatbarleft page-table-home">
+											                    <thead>
+												                    <tr>
+																		<th style="width: 30px">STT</th>
+												                    	<th>Hình ảnh</th>
+												                    	<th class="text-center">Tiêu đề</th>
+												                    	<th class="text-center">Background</th>
+												                    	<th class="text-center">Thêm hiệu ứng lắc</th>
+												                    	<th>Link</th>
+												                    	<th></th>
+												                    </tr>
+											                	</thead>
+											                    <tbody id="sortable">
+											                    	@if (!empty($content->floatbarleft))
+											                    		@foreach ($content->floatbarleft as $id => $val)
+																			@include('backend.repeater.row-floatbarleft')
+											                    		@endforeach
+											                    	@endif
+																</tbody>
+											                </table>
+											                <div class="text-right">
+											                    <button class="btn btn-primary btn-sm" 
+													            	onclick="repeater(event,this,'{{ route('get.layout') }}','.index', 'floatbarleft', '.floatbarleft')">Thêm
+													            </button>
+											                </div>
+											            </div>
 													</div>
 												</div>
 											</div>

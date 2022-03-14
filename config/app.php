@@ -187,8 +187,6 @@ return [
 
         \InfyOm\GeneratorBuilder\GeneratorBuilderServiceProvider::class,
 
-        Spatie\Sitemap\SitemapServiceProvider::class,
-
     ],
 
     /*

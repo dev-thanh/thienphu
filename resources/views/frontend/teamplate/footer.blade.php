@@ -49,6 +49,24 @@
     </div>
     </div>
 </footer>
+<div id="addon__society">
+    <div class="addon__item left" style="bottom: {{@$site_info->floatbarleft_bottom}}px;left: {{@$site_info->floatbarleft_left}}px">
+        @foreach(@$site_info->floatbarleft as $item)
+        <a href="{{@$item->link}}" class="addon__icon @if(@$item->status==1)  hot-line @endif" target="_blank" style="background:{{$item->color}}">
+            <img src="{{url('/').@$item->icon}}" alt="{{@$item->name}}">
+        </a>
+        @endforeach
+    </div>
+</div>
+<div id="addon__society">
+    <div class="addon__item right" style="bottom: {{@$site_info->floatbarright_bottom}}px;right: {{@$site_info->floatbarright_right}}px">
+        @foreach(@$site_info->floatbarright as $item)
+        <a href="{{@$item->link}}" class="addon__icon @if(@$item->status==1)  hot-line @endif" target="_blank" style="background:{{$item->color}}">
+            <img src="{{url('/').@$item->icon}}" alt="{{@$item->name}}">
+        </a>
+        @endforeach
+    </div>
+</div>
 
 
 

@@ -7,6 +7,7 @@ use Closure;
 use Illuminate\Support\Collection;
 use PhpOffice\PhpSpreadsheet\Worksheet\Row as SpreadsheetRow;
 
+/** @mixin SpreadsheetRow */
 class Row implements ArrayAccess
 {
     use DelegatedMacroable;
@@ -99,11 +100,13 @@ class Row implements ArrayAccess
     }
 
     /**
+     * @param  bool  $calculateFormulas
+     * @param  string|null  $endColumn
      * @return bool
      */
-    public function isEmpty($calculateFormulas = false): bool
+    public function isEmpty($calculateFormulas = false, ?string $endColumn = null): bool
     {
-        return count(array_filter($this->toArray(null, $calculateFormulas, false))) === 0;
+        return count(array_filter($this->toArray(null, $calculateFormulas, false, $endColumn))) === 0;
     }
 
     /**

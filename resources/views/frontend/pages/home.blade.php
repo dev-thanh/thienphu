@@ -9,6 +9,21 @@
         @if(count($slider))
         <section id="section-banner" class="fadeIn wow" data-wow-delay="0.2s">
         <div class="background-overlay">
+            @if(!empty(@$site_info->discount))
+            <div class="breaking-bar hidden-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> 
+                                @foreach($site_info->discount as $item)    
+                                    <a href="{{@$item->link}}">{!! @$item->name !!} </a> 
+                                @endforeach
+                            </marquee>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
             <div id="banner-carousel" class="owl-carousel owl-theme">
                 @foreach($slider as $item)
                 <div class="items-banner-slider">
