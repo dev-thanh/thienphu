@@ -1,0 +1,188 @@
+@extends('backend.layouts.app')
+
+@section('content')
+    <div class="main-panel">
+        <div class="content">
+            <div class="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-contact" action="{{ route('pages.build.post') }}" method="POST">
+                            @csrf
+                            {{ csrf_field() }}
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center">
+                                        <i class="icon-book-open icon-header"></i>
+	                                    <h4 class="card-title"><a href="{{ route('pages.list') }}">Cài đặt trang</a></h4>
+	                                    <span>
+                                            <i class="flaticon-right-arrow"></i>Cập nhật
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+					               	@include('flash::message')
+									<input name="type" value="{{ $data->type }}" type="hidden">
+									<input name="lang" value="{{ $data->lang }}" type="hidden">
+
+					               	<div class="row">
+										<div class="col-sm-12">
+											<div class="form-group">
+												<label for="">Trang</label>
+												<input type="text" class="form-control" value="{{ $data->name_page }}" disabled="">
+											</div>
+										</div>
+									</div>
+									
+								    <div class="nav-tabs-custom">
+
+										<div class="form-group">
+
+											<ul class="nav nav-pills nav-secondary">
+
+												<li class="nav-item">
+
+													<a class="nav-link active" href="#introduce" data-toggle="tab" aria-expanded="true">Nội dung trang</a>
+
+												</li>
+
+												<li class="nav-item">
+
+													<a class="nav-link" href="#seo" data-toggle="tab" aria-expanded="true">Cấu hình trang</a>
+
+												</li>
+
+											</ul>
+										</div>
+
+									</div>
+
+									<?php if(!empty($data->content)){
+
+										$content = json_decode($data->content);
+
+									} ?>
+
+								    <div class="tab-content">
+										<div class="tab-pane active" id="introduce">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label for="">Khối dịch vụ</label>
+														<input type="text" name="content[services][title]" class="form-control" value="{{ @$content->services->title }}" placeholder="Tiêu đề khối">
+													</div>
+                                                    
+													<div class="form-group">
+														<label for="">Khối dự án</label>
+														<input type="text" name="content[project][title]" class="form-control" value="{{ @$content->project->title }}"  placeholder="Tiêu đề khối">
+													</div>
+                                                    <div class="form-group">
+                                                        <textarea name="content[project][desc]" class="form-control" placeholder="Mô tả ngắn khối">{{ @$content->project->desc }}</textarea>
+													</div>
+
+													<div class="form-group">
+														<label for="">Khối sản phẩm</label>
+														<input type="text" name="content[product][title]" class="form-control" value="{{ @$content->product->title }}"  placeholder="Tiêu đề khối">
+													</div>
+                                                    <div class="form-group">
+                                                        <textarea name="content[product][desc]" class="form-control" placeholder="Mô tả ngắn khối">{{ @$content->product->desc }}</textarea>
+													</div>
+
+													<div class="form-group">
+														<label for="">Khối liên hệ</label>
+														<input type="text" name="content[contact][title]" class="form-control" value="{{ @$content->contact->title }}"  placeholder="Tiêu đề khối">
+													</div>
+                                                    <div class="form-group">
+                                                        <textarea name="content[contact][desc]" class="form-control" placeholder="Mô tả ngắn khối">{{ @$content->contact->desc }}</textarea>
+													</div>
+
+													<div class="form-group">
+														<label for="">Khối tin tức</label>
+														<input type="text" name="content[news][title]" class="form-control" value="{{ @$content->news->title }}"  placeholder="Tiêu đề khối">
+													</div>
+                                                    <div class="form-group">
+                                                        <textarea name="content[news][desc]" class="form-control" placeholder="Mô tả ngắn khối">{{ @$content->news->desc }}</textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="tab-pane" id="seo">
+
+											<div class="row">
+
+												<div class="col-sm-2">
+
+													<div class="form-group">
+
+							                           <label>Hình ảnh</label>
+
+							                           <div class="image">
+
+							                               <div class="image__thumbnail">
+
+							                                   <img src="{{ $data->image ?  url('/').$data->image : __IMAGE_DEFAULT__ }}"  
+
+							                                   data-init="{{ __IMAGE_DEFAULT__ }}">
+
+							                                   <a href="javascript:void(0)" class="image__delete" onclick="urlFileDelete(this)">
+
+							                                    <i class="fa fa-times"></i></a>
+
+							                                   <input type="hidden" value="{{ @$data->image }}" name="image"  />
+
+							                                   <div class="image__button" onclick="fileSelect(this)"><i class="fa fa-upload"></i> Upload</div>
+
+							                               </div>
+
+							                           </div>
+
+							                       </div>
+
+												</div>
+
+												<div class="col-sm-10">
+
+													<div class="form-group">
+
+														<label for="">Tiêu đề trang</label>
+
+														<input type="text" name="meta_title" class="form-control" value="{{ @$data->meta_title }}">
+
+													</div>
+
+													<div class="form-group">
+
+														<label for="">Mô tả trang</label>
+
+														<textarea name="meta_description" 
+
+														class="form-control" rows="5">{!! @$data->meta_description !!}</textarea>
+
+													</div>
+
+													<div class="form-group">
+
+														<label for="">Từ khóa</label>
+
+														<input type="text" name="meta_keyword" class="form-control" value="{!! @$data->meta_keyword !!}">
+
+													</div>
+
+												</div>
+
+											</div>
+
+							            </div>
+										<div class="form-group">
+											<button type="submit" class="btn btn-primary">Lưu lại</button>
+										</div>
+							        </div>
+								</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
