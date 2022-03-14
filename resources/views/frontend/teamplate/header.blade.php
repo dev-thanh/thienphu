@@ -56,7 +56,7 @@
               <button type="button" data-toggle="dropdown" class="btn dropdown-toggle"><i class="fal fa-search"></i></button>
               <div class="dropdown-menu">
                   <form class="form-group form-search" action="{{route('home.search')}}" method="GET">
-                    <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search" value="{{request()->search}}">
                     <button class="btn btn-outline-success" type="submit"><i class="fal fa-search"></i></button>
                   </form>
               </div>
