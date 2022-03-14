@@ -87,7 +87,7 @@ class PostController extends Controller
     {
         if ($request->ajax()) {
 
-            $list_post = $this->posts->getAllPosts();
+            $list_post = $this->posts->orderBy('created_at','DESC')->get();
 
             return Datatables::of($list_post)
                 ->addColumn('checkbox', function ($data) {

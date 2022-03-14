@@ -125,8 +125,15 @@
 
 				<li class="nav-item {{ ( Request::segment(2) === 'videos' ) ? 'active' : null }}">
 					<a href="{{ route('videos.index') }}">
-						<i class="fas fa-paint-roller"></i>
+						<i class="fas fa-file-video"></i>
 						<p>Quản lý videos</p>
+					</a>
+				</li>
+
+				<li class="nav-item {{ ( Request::segment(2) === 'image' ) ? 'active' : null }}">
+					<a href="{{ route('image.index', ['type'=> 'slider']) }}">
+						<i class="fas fa-file-video"></i>
+						<p>Quản lý banner</p>
 					</a>
 				</li>
 				

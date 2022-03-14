@@ -53,9 +53,7 @@ class PagesRepository extends BaseRepository implements PagesRepositoryInterface
 
             $menuFooter = $menu->where('id_group', 2);
 
-            $policy = \App\Models\Policy::where('status', 1)->orderBy('created_at','ASC')->get();
-
-            view()->share(compact('site_info', 'config', 'menuHeader', 'menuFooter', 'policy'));
+            view()->share(compact('site_info', 'config', 'menuHeader', 'menuFooter'));
 
         }
     }
