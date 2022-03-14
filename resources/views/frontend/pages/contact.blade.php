@@ -10,7 +10,7 @@
                 <div class="container">
                     <div class="page-breadcrumb">
                         <ul class="list-page-breadcrumb">
-                            <li><a href="index.html">Trang chủ</a></li>
+                            <li><a href="{{route('home')}}">Trang chủ</a></li>
                             <li><span>Liên hệ</span></li>
                         </ul>
                     </div>
