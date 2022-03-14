@@ -5,9 +5,6 @@
 ?>
 @extends('frontend.master')
 @section('main')
-@section('css')
-    <link rel="stylesheet" href="{{ __BASE_URL__ }}/css/pages/index.css" />
-@endsection
     <main id="content-wapper">
         @if(count($slider))
         <section id="section-banner" class="fadeIn wow" data-wow-delay="0.2s">
