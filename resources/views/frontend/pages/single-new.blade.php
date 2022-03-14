@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                        @if(count($postSame))
+                        @if(count($postSame)-1 > 0)
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar-content">
                             <h3 class="title-widget-sidebar">Bài viết liên quan</h3>
                             <div class="related-posts">
