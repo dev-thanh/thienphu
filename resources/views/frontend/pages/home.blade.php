@@ -77,7 +77,7 @@
                                     <div class="items-videos">
                                         <div class="img-videos">
                                             <a href="{{$video->url}}" class="swipebox popup-youtube">
-                                            <img src="{{$item->image}}" alt="{{$video->name}}">
+                                            <img src="{{$video->image}}" alt="{{$video->name}}">
                                             <span class="play_video"><i class="fa fa-play"></i></span>
                                             </a>
                                         </div>
