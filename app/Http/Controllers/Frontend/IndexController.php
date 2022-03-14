@@ -131,11 +131,34 @@ class IndexController extends Controller
 
         $postSame  = $this->posts->postSameCate($data->id, $new_related_id);
 
+        $key = null;
+
+        $postPre = null;
+
+        $postNext = null;
+
+        foreach($postSame as $k => $item)
+        {
+            if($data->id == $item->id)
+            {
+                $key = $k;
+
+                break;
+            }
+        }
+
+        if(isset($postSame[$k-1])){
+            $postPre = $postSame[$k-1];
+        }
+        if(isset($postSame[$k+1])){
+            $postNext = $postSame[$k+1];
+        }
+
         $postHot = $this->posts->postsHot($data->id,7);
 
         $cateParent = $this->cate->getParentFirst($id_cate);
 
-        return view('frontend.pages.single-new', compact('dataSeo', 'data', 'postSame','postHot','cateParent'));
+        return view('frontend.pages.single-new', compact('dataSeo', 'data', 'postSame','postHot','cateParent','postPre','postNext'));
     }
 
     public function getSingleProduct(Request $request, $slug)

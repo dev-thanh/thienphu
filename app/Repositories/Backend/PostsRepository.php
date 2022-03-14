@@ -31,7 +31,7 @@ class PostsRepository extends BaseRepository implements PostsRepositoryInterface
 
     public function postSameCate($id, $array_id)
     {
-        $data = $this->model->where('id', '!=', $id)->where('status', 1)
+        $data = $this->model->where('status', 1)
                 ->whereIn('id', $array_id)->orderBy('created_at', 'DESC')->get();
 
         return $data;

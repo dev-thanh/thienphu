@@ -29,12 +29,20 @@
                             </ul>
                             <div class="pagination-posts">
                                 <div class="nav-pagination-posts nav-pagination-top">
-                                    <a href="chi-tiet-tin-tuc.html">Bài trước</a>
-                                    <a href="chi-tiet-tin-tuc.html">Bài Sau</a>
+                                    @if($postPre !=null)
+                                    <a href="{{route('home.single-news',['id'=>$postPre->id,'slug'=>$postPre->slug])}}">Bài trước</a>
+                                    @endif
+                                    @if($postNext !=null)
+                                    <a href="{{route('home.single-news',['id'=>$postNext->id,'slug'=>$postNext->slug])}}">Bài Sau</a>
+                                    @endif
                                 </div>
                                 <div class="nav-pagination-posts nav-pagination-bottom">
-                                    <a href="chi-tiet-tin-tuc.html">So Sánh Băng tải PVC Chất Lượng Tốt Và Băng Tải Kém Chất Lượng</a>
-                                    <a href="chi-tiet-tin-tuc.html">So Sánh Băng tải PVC Chất Lượng Tốt Và Băng Tải Kém Chất Lượng</a>
+                                    @if($postPre !=null)
+                                    <a href="{{route('home.single-news',['id'=>$postPre->id,'slug'=>$postPre->slug])}}">{{$postPre->name}}</a>
+                                    @endif
+                                    @if($postNext !=null)
+                                    <a href="{{route('home.single-news',['id'=>$postNext->id,'slug'=>$postNext->slug])}}">{{$postNext->name}}</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -43,6 +51,7 @@
                             <h3 class="title-widget-sidebar">Bài viết liên quan</h3>
                             <div class="related-posts">
                                 @foreach($postSame as $item)
+                                @if($item->id != $data->id)
                                 <div class="items-posts">
                                     <div class="img-posts">
                                         <a href="{{route('home.single-news',['id'=>$item->id,'slug'=>$item->slug])}}">
@@ -53,6 +62,7 @@
                                         <p class="name-posts"><a href="{{route('home.single-news',['id'=>$item->id,'slug'=>$item->slug])}}">{{$item->name}}</a></p>
                                     </div>
                                 </div>
+                                @endif
                                 @endforeach
                             </div>
                         </div>
