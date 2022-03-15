@@ -49,8 +49,6 @@ Route::group(['namespace' => 'Admin'], function () {
 
     Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
 
-        
-
     	/* Trang chủ */
        	Route::get('/home', 'HomeController@index')->name('backend.home');
 
@@ -72,15 +70,11 @@ Route::group(['namespace' => 'Admin'], function () {
         //Videos
         Route::resource('videos', 'VideosController', ['except' => ['show']]);
 
-        
-
         /* Tin tức */
         Route::resource('category-post', 'CategoriesPostController', ['except' => ['show']]);
         Route::resource('posts', 'PostController', ['except' => ['show']]);
         Route::post('posts/postMultiDel', ['as' => 'posts.postMultiDel', 'uses' => 'PostController@deleteMuti']);
         Route::get('posts/get-slug', 'PostController@getAjaxSlug')->name('posts.get-slug');
-        
-
 
         /* Liên hệ */
         Route::group(['prefix' => 'contact'], function () {
@@ -132,17 +126,6 @@ Route::group(['namespace' => 'Admin'], function () {
 
         /* Get layout */
        	Route::get('/get-layout', 'HomeController@getLayOut')->name('get.layout');
-
-        //Chính sách liên hệ
-        Route::group(['prefix' => 'policy'], function () {
-            Route::get('/', ['as' => 'policy.list', 'uses' => 'PolicyController@getListPolicy']);
-            Route::get('/add-plicy', ['as' => 'policy.add', 'uses' => 'PolicyController@addPolicy']);
-            Route::post('/post-add-plicy', ['as' => 'policy.post-add', 'uses' => 'PolicyController@postAddPolicy']);
-            Route::get('/edit-policy/{id}', ['as' => 'policy.edit', 'uses' => 'PolicyController@editPolicy']);
-            Route::post('/post-edit-policy/{id}', ['as' => 'policy.post-edit', 'uses' => 'PolicyController@postEditPolicy']);
-            Route::get('/delete-policy/{id}', ['as' => 'policy.delete', 'uses' => 'PolicyController@deletePolicy']);
-
-        });
 
        	/* Cài đặt màu template */
        	Route::get('/save-color-setting', 'HomeController@saveColorSetting')->name('save-color-setting');

@@ -82,6 +82,22 @@
 								                       </div>
 													</div>
 
+													<div class="col-lg-2">
+								                        <div class="form-group">
+								                           <label>Logo footer</label>
+								                           <div class="image">
+								                               <div class="image__thumbnail">
+								                                   <img src="{{ !empty($content->logo_footer) ? url('/').$content->logo_footer :  __IMAGE_DEFAULT__ }}"  data-init="{{ __IMAGE_DEFAULT__ }}">
+								                                   <a href="javascript:void(0)" class="image__delete" 
+								                                   onclick="urlFileDelete(this)">
+								                                    <i class="fa fa-times"></i></a>
+								                                   <input type="hidden" value="{{ @$content->logo_footer }}" name="content[logo_footer]"  />
+								                                   <div class="image__button" onclick="fileSelect(this)"><i class="fa fa-upload"></i> Upload</div>
+								                               </div>
+								                           </div>
+								                       </div>
+													</div>
+
 								                    <div class="col-lg-2">
 								                        <div class="form-group">
 								                           <label>Hình ảnh đại diện khi chia sẻ</label>

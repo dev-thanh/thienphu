@@ -249,7 +249,7 @@ class PostController extends Controller
             }
         }
 
-        return redirect()->route($this->module()['module'].'.index',['type'=>$request->type])->with('success', 'Cập nhập tin tức thành công');
+        return back()->with('success', 'Cập nhập tin tức thành công');
     }
 
     

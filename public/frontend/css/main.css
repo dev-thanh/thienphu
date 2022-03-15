@@ -26,7 +26,7 @@ blockquote cite,blockquote small{font-size:15px;display:block;line-height:20px;p
 blockquote em,blockquote i,blockquote cite{font-style:normal}
 blockquote strong,blockquote b{font-weight:600}
 address{font-style:italic;margin:0 0 20px;font-weight:600;letter-spacing:.5px;line-height:27px}
-table{border:0px solid #e9e9e9;background:transparent;border-spacing:0;letter-spacing:.5px;margin:0 0 20px;text-align:left;table-layout:fixed;width:100%}
+/* table{border:0px solid #e9e9e9;background:transparent;border-spacing:0;letter-spacing:.5px;margin:0 0 20px;text-align:left;table-layout:fixed;width:100%} */
 table th{padding:10px;color:#333}
 table td{border:1px solid #e8e7e7;padding:8px 10px}
 dl{margin-bottom:25px;margin-top:0}
@@ -2248,3 +2248,87 @@ nav.navbar .navbar-nav .nav-link{
         -webkit-transform: rotate(0) scale(1) skew(1deg);
     }
 }
+
+.logo-footer img {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 15px;
+  }
+  .tit-followus-social {
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    position: relative;
+    text-transform: uppercase;
+    color: #4B494A;
+  }
+  .tit-followus-social span{
+    position: relative;
+    z-index: 10;
+    background: #EBEBEB;
+    padding: 5px 10px;
+  }
+  .tit-followus-social::before {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #4B494A;
+    width: 70%;
+    content: "";
+    top: 15px;
+  }
+  .name-company-footer {
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 30px;
+      color: #026AD2;
+      max-width: 100%;
+    }
+    .information-footer p {
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 20px;
+      color: #000;
+      margin-bottom: 5px;
+    }
+    ul.social-footer {
+      padding: 0px;
+      margin: 0px;
+      list-style: none;
+      display: flex;
+      margin: 0 auto;
+      justify-content: center;
+    }
+    ul.social-footer li a {
+      color: #0F75C6;
+      background: #fff;
+      border-radius: 100%;
+      padding: 5px;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      margin: 0px 5px;
+      justify-content: center;
+      align-items: center;
+    }
+    ul.social-footer li a:hover,ul.social-footer li a:focus{
+      color: #000;
+      background: #e0a800;
+    }
+    ul.social-footer li a i {
+      width: auto;
+      margin: 0;
+      font-size: 20px;
+    }
+    ul.social-footer li a span{
+      display: none;
+    }
+    .information-footer {
+      max-width: 100%;
+    }

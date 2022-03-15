@@ -1,52 +1,36 @@
 <footer id="section-footer">
+    
+
     <div class="background-overlay">
-    <div class="container">
-        <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-            <h2 class="name-company-footer">CÔNG TY TNHH THƯƠNG MẠI VÀ CHẾ TẠO MÁY THIÊN PHÚ</h2>
-            <div class="information-footer">
-            <p><strong>{!! @$site_info->dcft_text !!}</strong> {!! @$site_info->dcft !!}</p>
-            <p><strong>{!! @$site_info->xsx_text !!}</strong> {!! @$site_info->xsx !!}</p>
-            <p><strong>{!! @$site_info->nmsx_text !!}</strong> {!! @$site_info->nmsx !!}</p>
-            <p><strong>{!! @$site_info->tax_code_text !!}</strong> {!! @$site_info->tax_code !!}</p>
-            <p><strong>Hotline:</strong> {!! @$site_info->phone_footer !!}}</p>
-            <p><strong>Email:</strong> {!! @$site_info->email !!}</p>
+        <div class="container">
+            <div class="row">
+                @if(!empty(@$site_info->social))
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="logo-footer">
+                        <img src="{{url('/').@$site_info->logo_footer}}" alt="Logo footer">
+                    </div>
+                    <h3 class="tit-followus-social"><span>Kết nối với chúng tôi</span></h3>
+                    <ul class="social-footer">
+                        @foreach(@$site_info->social as $social)
+                        <li><a target="_blank" href="{{$social->link}}">{!! $social->icon !!}<span>{{$social->name}}</span></a></li>
+                        @endforeach
+                    </ul>
+                    <!-- /End Social Media Icons-->
+                </div>
+                @endif
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <h2 class="name-company-footer">{!! @$site_info->company !!}</h2>
+                    <div class="information-footer">
+                        <p><strong>{!! @$site_info->dcft_text !!}</strong> {!! @$site_info->dcft !!}</p>
+                        <p><strong>{!! @$site_info->xsx_text !!}</strong> {!! @$site_info->xsx !!}</p>
+                        <p><strong>{!! @$site_info->nmsx_text !!}</strong> {!! @$site_info->nmsx !!}</p>
+                        <p><strong>{!! @$site_info->tax_code_text !!}</strong> {!! @$site_info->tax_code !!}</p>
+                        <p><strong>Hotline:</strong> {!! @$site_info->phone_footer !!}}</p>
+                        <p><strong>Email:</strong> {!! @$site_info->email !!}</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-            <h3 class="tit-widget-footer">Danh mục</h3>
-            <ul class="menu-footer">
-                @foreach($menuFooter as $item)
-                    @if($item->parent_id == null)
-                    <li><a href="{{url('/').$item->url}}">{{$item->title}}</a></li>
-                    @endif
-                @endforeach
-            </ul>
-        </div>
-        @if(!empty(@$site_info->social))
-        <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-            <h3 class="tit-widget-footer">Liên kết</h3>
-            <ul class="social-footer">
-                @foreach(@$site_info->social as $social)
-                <li><a target="_blank" href="{{$social->link}}">{!! $social->icon !!}<span>{{$social->name}}</span></a></li>
-                @endforeach
-            </ul>
-        <!-- /End Social Media Icons-->
-        </div>
-        @endif
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-            <h3 class="tit-widget-footer">Chỉ đường</h3>
-            <div class="iframe-googlemaps">
-            {!! @$site_info->google_maps !!}
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-    <div class="footer-copyright">
-    <div class="container">
-        <p class="txt-copyright">© Thien Phu 2022. All rights reserved</p>
-    </div>
     </div>
 </footer>
 @if(!empty(@$site_info->floatbarleft))
